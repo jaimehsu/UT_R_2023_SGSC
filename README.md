@@ -5,9 +5,9 @@
 Software: R, RStudio, SublimeText (recommended for a cleaner coding environment)
 
 Main packages: 
-Graphs  - ggplot2   (cheat sheet: https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf)
-Tables  - gtsummary (overview: https://www.danieldsjoberg.com/gtsummary/ )
-          flextable (cheat sheet: https://ardata-fr.github.io/flextable-book/static/pdf/cheat_sheet_flextable.pdf)
+Graphs  - ggplot2   (cheat sheet: https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf) /
+Tables  - gtsummary (overview: https://www.danieldsjoberg.com/gtsummary/ ) /
+          flextable (cheat sheet: https://ardata-fr.github.io/flextable-book/static/pdf/cheat_sheet_flextable.pdf)/
 
 Sample data: ACS from IPUM (Using IPUM with R is another struggle and we won't have the time to talk about it.) 
 
