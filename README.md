@@ -13,7 +13,7 @@ Sample data: ACS from IPUM (Using IPUM with R is another struggle and we won't h
 
 Recommendation: Bring a small sample of data from the project you are working on. In this workshop, choose 3-5 variables with numeric, binary, and categorical variables to practice making tables and figures. If your data requires weighting, please also bring the weight variables (if it is incredibly complicated... I can't promise you a perfect result in the workshop, but at least something to start with). 
 
-To ensure our practice runs as smoothly as possible, please try loading your sample data in R and properly label them, so they're table-ready (ex: Yes or No, instead of 1 and 0). You can take a look at Amanda's workshop materials for data-wrangling commands. 
+To ensure our practice runs as smoothly as possible, please try loading your sample data in R and properly label them, so they're table- and graph-ready (ex: Yes or No, instead of 1 and 0). You can take a look at Amanda's workshop materials for data-wrangling commands. 
 
 If you work with restricted or mysterious data and are unable to share it, you can use the sample data I prepared. It may not be as helpful for your specific goals, but it could still be fun. 
 
