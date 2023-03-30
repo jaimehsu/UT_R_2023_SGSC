@@ -89,25 +89,6 @@ table1 <- survey::svydesign(~1, data = combined, weights = ~ PERWT)%>%
 table1
 
 
-
-practice_table <- tbl_summary(data = combined, by = Education, missing = "no",
-                 statistic = list(all_categorical() ~ "{n} ({p}%)", 
-                                  c(Age) ~ "{mean} ({sd})", 
-                                  c(`Personal Wage`) ~ "{median} ({sd})"),
-                 include = c(Age, Sex, `Time of Immigration`, Education, `Marital Status`,
-                             `Citizenship Status`, `Personal Wage`))%>%
-  modify_header(update = list(label ~ "**Variables**"))%>%
-  modify_footnote(all_stat_cols() ~ "Weighted N (Weighted Percentages in Parenthesis) for Categorical Variables; Weighted Mean is presented for Age (Standard Deviation in Parenthesis)" )%>%
-  bold_labels()%>%
-  as_flex_table()%>%
-  flextable::add_footer_lines("Data from US Census and ACS")%>%
-  flextable::set_caption(caption = "Table 2:Descriptive Table by Education, Taiwanese Immigrants")%>%
-  line_spacing(space = 0.4, part = "body")%>%
-  style(pr_t = fp_text(font.family = "serif"), part = "all")
-
-practice_table
-
-
 ```
 
 
@@ -125,32 +106,6 @@ region_tw <- combined%>%
 
 region_all_wt <- as_survey(region_tw, weights=PERWT)
 
-region_line <- region_all_wt%>%
-  group_by(YEAR, bplace, Regions)%>%
-  summarize(percentage = survey_mean())%>%
-  filter(Regions == "California")%>%
-  ggplot(aes(y = percentage, x= YEAR, color=bplace, group =bplace, shape = bplace))+
-  geom_line(size = 1)+
-  geom_point(size = 2)+
-  xlab("Year")+
-  ylab("%")+
-  theme_minimal()+
-  scale_y_continuous(limits= c(0.1, 0.5), labels = scales::label_percent(accuracy = 1L))+
-  scale_color_manual(values = c( "Taiwanese" = "#94C5CCFF", "Chinese" = "#5A6F80FF",  "Japanese" = "#F4ADB3FF", "South Korean" = "#ECD89DFF", "Indian" = "#ADB7C0FF"))+
-  scale_shape_manual(values = c("Taiwanese" = 15, "Chinese" = 16, "Japanese" = 17, "South Korean" =7, "Indian" =4))
-  
-
-region_line+plot_annotation(
-   title = "Figure 2: Taiwanese and Asian Immigrants in California from 1980-2019",
-  caption = "Data from Census 1980-2000 and ACS 2010-19",
-  theme = theme(plot.title = element_text(size = 16, face = "bold"), 
-                plot.caption = element_text(size = 14, face = "bold")))& 
-   theme(axis.text = element_text(size = 15, face = "bold"),
-        axis.title = element_text(size=15, face = "bold"), 
-        legend.title = element_blank(),
-        legend.text = element_text(size = 15),
-        strip.text = element_text(size=14, face = "bold"),
-        text = element_text('sans'))
 ```
 
 ```{r for fig1a, echo=FALSE, message=FALSE,  fig.asp = 0.5, fig.width = 10, out.width = "120%"}
@@ -180,47 +135,7 @@ n_taiwan +plot_annotation(
         legend.title = element_text(size = 15, face = "bold"),
         legend.text = element_text(size = 15),
         strip.text = element_text(size=14, face = "bold"),
-        text = element_text('sans'))
-
-
-
-pratice_figure_a<-  combined_wt%>%
-  group_by(YEAR, `Citizenship Status`)%>%
-  summarize(prop = survey_mean(), 
-            n = n())%>%
-  ggplot(aes(x=YEAR, y= prop, fill = `Citizenship Status`))+ 
-  geom_bar(stat="identity", position = position_fill(reverse = T))+
-  xlab("Year")+
-# scale_x_continuous(breaks = 2010:2021)+
-  ylab("%")+
-  scale_y_continuous(labels = scales::percent)+
-  theme_minimal()
-
-pratice_figure_b<-  combined_wt%>%
-  group_by(YEAR, `Citizenship Status`)%>%
-  summarize(prop = survey_mean(), 
-            n = n())%>%
-  ggplot(aes(x=YEAR, y= prop, fill = `Citizenship Status`))+ 
-  geom_area(colour = "black", size = .2, alpha = .4, position = position_fill(reverse = T))+
-  xlab("Year")+
-# scale_x_continuous(breaks = 2010:2021)+
-  ylab("%")+
-  scale_y_continuous(labels = scales::percent)+
-# scale_fill_grey(start = 0, end = .9)+
-  theme_minimal()
-  
-
-pratice_figure_a +plot_annotation(
-  title = "Figure. 1: Foreign-born Taiwanese Immigrants", 
-  caption = "Data from ACS",
-  theme = theme(plot.title = element_text(size = 16, face = "bold"), 
-                plot.caption = element_text(size = 14, face = "bold")))& 
-   theme(axis.text = element_text(size = 15, face = "bold"),
-        axis.title = element_text(size=15, face = "bold"), 
-        legend.title = element_text(size = 15, face = "bold"),
-        legend.text = element_text(size = 15),
-        strip.text = element_text(size=14, face = "bold"),
-        text = element_text('sans'))
+        text = element_text('sans')
 
 
 ```
