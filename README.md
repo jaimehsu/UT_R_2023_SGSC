@@ -9,7 +9,9 @@ Graphs  - ggplot2   (cheat sheet: https://statsandr.com/blog/files/ggplot2-cheat
 Tables  - gtsummary (overview: https://www.danieldsjoberg.com/gtsummary/ ) /
           flextable (cheat sheet: https://ardata-fr.github.io/flextable-book/static/pdf/cheat_sheet_flextable.pdf)/
 
-Sample data: ACS from IPUM (Using IPUM with R is another struggle and we won't have the time to talk about it.) 
+Sample data: combined.Rds (Rds is a R data format. The data is using IPUM census and acs. Using IPUM with R is another struggle and we won't have the time to talk about it.) 
+
+Sample codes are attached as well. 
 
 Recommendation: Bring a small sample of data from the project you are working on. In this workshop, choose 3-5 variables with numeric, binary, and categorical variables to practice making tables and figures. If your data requires weighting, please also bring the weight variables (if it is incredibly complicated... I can't promise you a perfect result in the workshop, but at least something to start with). 
 
